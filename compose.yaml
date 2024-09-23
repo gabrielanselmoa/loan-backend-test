@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres
+    container_name: psql-loan
+    restart: always
+    environment:
+      POSTGRES_DB: loanDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5434:5432"
+    networks:
+      - back-tier
+
+networks:
+  back-tier:
+    driver: bridge
+
