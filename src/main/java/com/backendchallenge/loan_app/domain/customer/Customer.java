@@ -4,9 +4,7 @@ import com.backendchallenge.loan_app.domain.loan.Loan;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_customer")
@@ -22,7 +20,7 @@ public class Customer {
     private String location;
 
     @OneToMany
-    private Set<Loan> loans = new HashSet<>();
+    private List<Loan> loans = new ArrayList<>();
 
     public Customer(){}
 
@@ -83,7 +81,7 @@ public class Customer {
         this.location = location;
     }
 
-    public Set<Loan> getLoans() {
+    public List<Loan> getLoans() {
         return loans;
     }
 

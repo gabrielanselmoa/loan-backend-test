@@ -30,10 +30,10 @@ public class LoanService {
     public List<LoanDTO> findAll(){
         var loans = loanRepository.findAll();
         if (loans.isEmpty()){
-            throw new EntityNotFoundException("Not loans were found!");
+            throw new EntityNotFoundException("No loans were found!");
         }
         return loans.stream()
-                .map(LoanDTO::new) // Construtor que aceita Loan como parâmetro
+                .map(LoanDTO::new)
                 .collect(Collectors.toList());
     }
 

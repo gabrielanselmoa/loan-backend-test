@@ -4,7 +4,9 @@ import com.backendchallenge.loan_app.domain.loan.Loan;
 import com.backendchallenge.loan_app.domain.loan.LoanDTO;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,7 +18,7 @@ public class CustomerRequestDTO {
     private Double income;
     private String location;
 
-    private Set<LoanDTO> loans = new HashSet<>();
+    private List<LoanDTO> loans = new ArrayList<>();
 
     public CustomerRequestDTO(){}
 
@@ -36,7 +38,7 @@ public class CustomerRequestDTO {
         this.location = customer.getLocation();
         this.loans = customer.getLoans().stream()
                 .map(LoanDTO::new)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
     public String getName() {
@@ -79,7 +81,7 @@ public class CustomerRequestDTO {
         this.location = location;
     }
 
-    public Set<LoanDTO> getLoans() {
+    public List<LoanDTO> getLoans() {
         return loans;
     }
 }
